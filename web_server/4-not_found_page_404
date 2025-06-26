@@ -19,7 +19,12 @@ echo "server {
 	location /xyz {
 		return 404;
 	}
+	# Custom error 404 page
 	error_page 404 /custom_404.html;
+
+	location = /custom_404.html {
+	internal;
+}
 }" > /etc/nginx/sites-available/default
 sudo chown -R root:root /var/www/html
 sudo chown -R root:root /etc/nginx/sites-available/default
